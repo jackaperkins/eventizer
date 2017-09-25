@@ -23,9 +23,12 @@ body {
 }
 .event {
   padding:10px;
-  margin-bottom: 20px;
 }
 .event:hover {
+  background: #eee;
+}
+
+.event.new {
   background: #eee;
 }
 
@@ -48,8 +51,8 @@ body {
 }
 
 .event .picture {
-  width:130px;
-  height:90px;
+  width:110px;
+  height:110px;
   background-size: cover;
   float:left;
   margin-right:10px;
@@ -72,6 +75,10 @@ body {
 
 .tag-default {
   display: none;
+}
+
+.tag-new {
+  background: #FFc;
 }
 
 .tag-diy {

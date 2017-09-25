@@ -3,6 +3,11 @@ var FB = require('fb');
 var async = require('async');
 var config = require('./config');
 
+/*
+FB SYNC
+This copies whatever events are listed in the first 'page' of results from each FB page listed in the pages table
+*/
+
 
 FB.setAccessToken (config.fb_token);
 

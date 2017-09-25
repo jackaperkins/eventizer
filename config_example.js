@@ -1,3 +1,4 @@
+// copy this to config.js
 module.exports = {
   db_user: '',
   db_pass: '',

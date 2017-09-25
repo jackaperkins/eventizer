@@ -19,5 +19,23 @@ module.exports =  {
  day_time : function (context) {
    // sep 26, tuesday, 7pm
    return moment(context).format("h a");
+ },
+ new_class : function (date) {
+   if(isNew(date)) return 'new';
+ },
+ new_tag : function (date) {
+   if(isNew(date)) return '<span class="tag tag-new">new</span>';
  }
+}
+
+
+function isNew(date){
+  var oneDay = 1 * 24 * 60 * 60 * 1000;
+  var sixHours = 6 * 60 * 60 * 1000;
+  var threshold = new Date(new Date() - sixHours);
+  if(date > threshold) {
+    return true;
+  } else {
+    return false;
+  }
 }

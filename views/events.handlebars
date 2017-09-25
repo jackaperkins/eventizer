@@ -6,11 +6,11 @@
   <div class="day-header">{{day}}</div>
   {{#each events}}
   <a href="http://facebook.com/{{fbid}}" target="_blank">
-  <div class="event">
+  <div class="event {{new_class createdAt}}">
     <div class="picture" style="background-image:url({{picture_url}})">
     </div>
     <div class="basics">
-      <span class="tag tag-{{page.tag.name}}">{{page.tag.name}}</span><span class="title">{{name}}</span><br>
+      {{{new_tag createdAt}}}<span class="tag tag-{{page.tag.name}}">{{page.tag.name}}</span><span class="title">{{name}}</span><br>
       <div class="micro-spacer"></div>
       {{day_time start_time}} @ {{place_name}}<br>
      <span class="description">{{substr 180 description}}</span>
