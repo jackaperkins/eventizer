@@ -1,0 +1,16 @@
+{
+  "name": "eventizer",
+  "dependencies": {
+    "async": "^2.5.0",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "fb": "^2.0.0",
+    "moment": "^2.18.1",
+    "mustache-express": "^1.2.5",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.10.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

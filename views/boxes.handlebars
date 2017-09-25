@@ -1,0 +1,18 @@
+
+<div style="float:right"><a href="/">back</a></div>
+<h2>berlin events / in boxes</h2>
+
+{{#each days}}
+
+  <div class="box day">{{{split day}}}</div>
+  {{#each events}}
+  <a href="http://facebook.com/{{fbid}}" target="_blank">
+    <div class="box"  style="background-image:url({{picture_url}})" >
+      <div class="box-fader">
+        <span class="tag tag-{{page.tag.name}}">{{page.tag.name}}</span><span class="title">{{name}}</span><br>
+      </div>
+    </div>
+  </a>
+  {{/each}}
+{{/each}}
+<div class="clear"></div>

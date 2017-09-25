@@ -1,0 +1,128 @@
+body {
+  font-family: sans-serif;
+  font-size: 17px;
+  background: #fff;
+  padding: 0px;
+  margin: 0px;
+}
+
+.clear {
+  clear:both;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 900px;
+  padding: 25px 30px;
+  background: #fff;
+}
+
+.day-header {
+  font-size: 20px;
+  font-weight: bold;
+}
+.event {
+  padding:10px;
+  margin-bottom: 20px;
+}
+.event:hover {
+  background: #eee;
+}
+
+.event .title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.micro-spacer {
+  height:8px;
+}
+
+.event .description {
+  font-size: 15px;
+}
+
+.basics {
+  width:730px;
+  float:left;
+}
+
+.event .picture {
+  width:130px;
+  height:90px;
+  background-size: cover;
+  float:left;
+  margin-right:10px;
+}
+
+.tag {
+  background-color: #fff;
+  border-radius: 5px;
+  padding:2px 5px;
+  margin-right: 10px;
+}
+
+.tag-kino {
+  background-color: #a0c4ff;
+}
+
+.tag-art {
+  border: 1px solid grey;
+}
+
+.tag-default {
+  display: none;
+}
+
+.tag-diy {
+  background: black;
+  color:white;
+}
+
+.box {
+  width:180px;
+  height: 160px;
+  background-color: white;
+  background-size: cover;
+  float:left;
+  overflow: hidden;
+}
+
+.box.day {
+  text-align: center;
+  padding-top: 40px;
+  height: 120px;
+    font-size: 25px;
+}
+
+.box-fader {
+  width:170px;
+  height: 160px;
+  position: relative;
+  padding-left: 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,.5), rgba(0,0,0,1));
+}
+.box:hover .box-fader{
+  background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,1));
+}
+
+
+.box .title {
+  position: absolute;
+  top: 10px;
+  display: block;
+  color: white;
+  text-shadow: 2px 2px #000;
+  font-size: 16px;
+  line-height: 20pt;
+}
+.box .tag {
+  position: absolute;
+  bottom: 10px;
+  right:0px;
+  font-size: 18px;
+}
+
+a {
+  color: black;
+}
