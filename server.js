@@ -19,11 +19,19 @@ app.use(express.static('public'));
 
 app.get('/', function (req, res) {
   db.event.all(function (data) {
-
-    res.render('events', {days:binEvents(data)})
-    // res.send(data);
+    db.tag.all(function (tags){
+      res.render('events', {tags:tags, days:binEvents(data)})
+    });
   });
-//  res.send('Hello World!');
+});
+
+app.get('/tag/:id', function (req, res) {
+  db.event.tag(req.params.id, function (events) {
+    db.tag.one(req.params.id, function (tag){
+      return res.render('events', {tag: tag, days:binEvents(events)});
+    });
+  });
+
 });
 
 app.get('/boxes', function (req, res) {
@@ -32,9 +40,9 @@ app.get('/boxes', function (req, res) {
   });
 });
 
-app.get('/pages', function (req, res) {
+app.get('/about', function (req, res) {
   db.page.all(function (data) {
-    res.render('pages', {pages:data})
+    res.render('about', {pages:data})
     // res.send(data);
   });
 //  res.send('Hello World!');

@@ -1,7 +1,17 @@
 
-<div style="float:right"><a href="/boxes">box view</a> | <a href="/pages">pages</a></div>
-<h2>berlin events</h2>
-
+<div style="float:right"><a href="/boxes">box view</a> | <a href="/about">about</a></div>
+<h2><a href="/">berlin events</a></h2>
+{{#if tag}}
+Filtering events by tag <span class="tag tag-{{tag.name}}">{{tag.name}}</span> <a href="/">clear</a>
+<Br><br>
+{{/if}}
+{{#if tags}}
+Filter by tag:
+{{#each tags}}
+<a href="/tag/{{id}}"><span class="tag tag-{{name}}">{{name}}</span></a>
+{{/each}}
+<br><Br>
+{{/if}}
 {{#each days}}
   <div class="day-header">{{day}}</div>
   {{#each events}}
@@ -10,7 +20,9 @@
     <div class="picture" style="background-image:url({{picture_url}})">
     </div>
     <div class="basics">
-      {{{new_tag createdAt}}}<span class="tag tag-{{page.tag.name}}">{{page.tag.name}}</span><span class="title">{{name}}</span><br>
+      {{{new_tag createdAt}}}
+      {{#unless ../../tag}}<span class="tag tag-{{page.tag.name}}">{{page.tag.name}}</span>{{/unless}}
+      <span class="title">{{name}}</span><br>
       <div class="micro-spacer"></div>
       {{day_time start_time}} @ {{place_name}}<br>
      <span class="description">{{substr 180 description}}</span>

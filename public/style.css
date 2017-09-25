@@ -17,6 +17,10 @@ body {
   background: #fff;
 }
 
+h2 a {
+  text-decoration: none;
+}
+
 .day-header {
   font-size: 20px;
   font-weight: bold;
@@ -65,6 +69,10 @@ body {
   margin-right: 10px;
 }
 
+a .tag {
+  text-decoration: none;
+}
+
 .tag-kino {
   background-color: #a0c4ff;
 }
@@ -73,7 +81,11 @@ body {
   border: 1px solid grey;
 }
 
-.tag-default {
+.tag-venue {
+  background: #fef;
+}
+
+.event .tag-venue {
   display: none;
 }
 

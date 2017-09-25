@@ -32,7 +32,8 @@ module.exports =  {
 function isNew(date){
   var oneDay = 1 * 24 * 60 * 60 * 1000;
   var sixHours = 6 * 60 * 60 * 1000;
-  var threshold = new Date(new Date() - sixHours);
+
+  var threshold = new Date(new Date() - oneDay);
   if(date > threshold) {
     return true;
   } else {

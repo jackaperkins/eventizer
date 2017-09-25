@@ -64,6 +64,7 @@ Page.belongsTo(Tag, {foreignKey: 'tag_id'});
 Events.belongsTo(Page, {foreignKey: 'page_id'});
 
 
+
 module.exports = {
   sync : function (){
     Tag.sync();
@@ -71,6 +72,21 @@ module.exports = {
     Events.sync();
     Page.sync();
 
+  },
+  tag : {
+    all : function (callback) {
+      Tag.all().then(callback);
+    },
+    one : function (id, callback) {
+      Tag.findAll({
+        where: {
+          id: id
+        }
+      }).then(function (data){
+        if(data.length == 0) throw "oh no";
+        callback(data[0]);
+      });
+    }
   },
   page : {
     all : function (callback) {
@@ -88,6 +104,17 @@ module.exports = {
         where: {start_time: {
           $gt: new Date(new Date() - 24 * 60 * 60 * 1000)
         }}
+      }).then(callback);
+    },
+    tag : function (tag_id, callback) {
+      Events.all({
+        include: {model:Page, where: {tag_id: {$eq:tag_id}}, include: [Tag]},
+        order:[['start_time']],
+        where: {
+          start_time: {
+            $gt: new Date(new Date() - 24 * 60 * 60 * 1000)
+          }
+        }
       }).then(callback);
     },
     upsert : function (e, callback) {
@@ -112,3 +139,17 @@ module.exports = {
     }
   }
 };
+/*
+# super secret query to find pages with no new events
+SELECT pages.title, tags.name AS "tag", pages.id, COUNT(events.id) AS "event_count" from pages
+LEFT JOIN events on events.page_id = pages.id
+AND (
+  events.createdAt > DATE_ADD(NOW(), interval -30 day)
+
+)
+LEFT JOIN tags ON pages.tag_id = tags.id
+GROUP BY pages.id
+ORDER BY event_count ASC;
+
+
+*/
