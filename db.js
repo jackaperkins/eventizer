@@ -110,7 +110,7 @@ module.exports = {
         include: {model:Page, include: [Tag]},
         order:[['start_time']],
         where: {start_time: {
-          $gt: new Date(new Date() - 24 * 60 * 60 * 1000)
+          $gt: new Date(new Date() - 8 * 60 * 60 * 1000)
         }}
       }).then(callback);
     },
