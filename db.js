@@ -97,6 +97,14 @@ module.exports = {
     }
   },
   event : {
+    clean : function (callback) {
+      Events.destroy({
+        where: {start_time: {
+          // delete all more than 3 days old
+          $lt:  new Date(new Date() - 3 * 24 * 60 * 60 * 1000)
+        }}
+      }).then(callback);
+    },
     all : function (callback) {
       Events.all({
         include: {model:Page, include: [Tag]},
